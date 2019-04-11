@@ -1,0 +1,49 @@
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
+#include <vector>
+
+#include "maze.h"
+
+class roboter {
+public:
+	roboter(maze* origin);
+	virtual ~roboter();
+	virtual int getSteps();
+	pair<int, int> getStartPosition();
+	pair<int, int> getEndPosition();
+	void prepare();
+	virtual bool findWay(int x, int y) = 0;
+	void showMyMaze();
+protected:
+	int steps;
+	pair<int, int> startPosition;
+	pair<int, int> endPosition;
+	int mazeWidth;
+	int mazeHeight;
+	char** myMaze;
+};
+
+class robOne : public roboter {
+public:
+	robOne(maze* myMaze);
+	~robOne();
+	bool findWay(int x, int y);
+};
+
+class robTwo : public roboter {
+public:
+	robTwo(maze* myMaze);
+	~robTwo();
+	int getSteps();
+	bool findWay(int x, int y);
+};
+
+class robThree : public roboter {
+public:
+	robThree(maze* myMaze);
+	~robThree();
+	int getSteps();
+	bool findWay(int x, int y);
+};

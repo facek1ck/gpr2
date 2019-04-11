@@ -1,0 +1,22 @@
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+class maze{
+public:
+	maze(int width, int height);
+	~maze();
+	char** getMaze();
+	int getWidth();
+	int getHeight();
+	void setMaze(vector<char> input);
+	void showMaze();
+private:
+	int width;
+	int height;
+	char** field;
+};
