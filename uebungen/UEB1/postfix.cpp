@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <string>
-#include <sstream>
+
 #include "node.h"
 #include "postfix.h"
 

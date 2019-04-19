@@ -35,3 +35,5 @@ uebungen/.DS_Store
 cmake-build-debug/
 CMakeLists.txt
 uebungen/gtest/
+UEB*_tests
+UEB*_tests.exe

@@ -1,4 +1,4 @@
-#ifdef TESTS
+
 
 #include <iostream>
 #include "postfix.h"
@@ -46,4 +46,4 @@ TEST(MIXED, PRECEDENCE)
 	ASSERT_EQ(getResult(input), 12);
 }
 
-#endif
+
