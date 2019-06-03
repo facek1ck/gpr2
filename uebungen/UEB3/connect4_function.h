@@ -3,6 +3,7 @@ class game_board{
         game_board(int width, int height); //Constructor
         ~game_board(); //Destructor
         bool is_full();
+        bool is_column_full(int column);
         bool put_coin(int column, char player);
         bool win(char player);
         void print_board();
@@ -56,4 +57,5 @@ class computer_player : public players{
         char mName;
         game_board* gameboard;
 };
+
 
