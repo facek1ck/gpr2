@@ -1,16 +1,16 @@
-all: connect4
+all: fight-club
 
-connect4: *.cpp
-	g++ -std=c++11 -ggdb -o connect4 *.cpp
+fight-club: *.cpp
+	g++ -std=c++11 -ggdb -o fight-club *.cpp
 	
 tests: *.cpp
-	g++ -std=c++11 -DTESTS -I../gtest/include ../gtest/lib/gtest_main.a -lpthread -ggdb -o UEB3_tests *.cpp
+	g++ -std=c++11 -DTESTS -I../gtest/include ../gtest/lib/gtest_main.a -lpthread -ggdb -o UEB4_tests *.cpp
 
-run: connect4
-	drmemory -- connect4
+run: fight-club
+	drmemory -- fight-club
 	
 run_tests: tests
-	drmemory -- UEB3_tests
+	drmemory -- UEB4_tests
 	
 clean:
-	rm -f connect4.exe connect4 UEB*_tests.exe UEB*_tests *.o
+	rm -f fight-club.exe fight-club UEB*_tests.exe UEB*_tests *.o

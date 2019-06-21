@@ -1,77 +1,72 @@
-#include<string>
+#include <string>
 #ifndef FIGHTERS_H_include
-#define FIGHTERS_H_include
+#define FIGHTERS_H
 
-class Fighter
-{
+class Fighter {
+
 #ifdef TESTS
-	public:
+public:
 #else
-	protected:
+protected:
 #endif
     int healthPoints = 100;
     int offensePoints;
     int defensePoints;
     std::string description;
-
 public:
     bool dead = false;
     std::string name;
-	Fighter(const std::string &);
-    virtual ~Fighter(){};
-    
+    Fighter(const std::string&);
+    virtual ~Fighter() {};
+    virtual double specialAttack() = 0;
+    virtual double specialDefense() = 0;    
     void attack(Fighter&);
     const void showStats();
 
-#ifdef TESTS
-	public:
-#else
-	protected:
-#endif
-	virtual double specialAttack() = 0;
-	virtual double specialDefense() = 0;
+    int getHealthPoints() { return healthPoints; };
+    int getOffensePoints() { return offensePoints; };
+    int getDefensePoints() { return defensePoints; };;
+    std::string getDescription() { return description; };;
 };
 
-class Saeufer : public Fighter
-{
+class Warrior : public Fighter {
 public:
-	Saeufer(const std::string&);
-	virtual ~Saeufer();
-	double specialAttack();
-	double specialDefense();
+    Warrior(const std::string&);
+    virtual ~Warrior() {};
+    double specialAttack();
+    double specialDefense();
 };
 
-class FauleSau : public Fighter
-{
+class Ninja : public Fighter {
 public:
-	FauleSau(const std::string&);
-	virtual ~FauleSau();
-	double specialAttack();
-	double specialDefense();
+    Ninja(const std::string&);
+    virtual ~Ninja() {};
+    double specialAttack();
+    double specialDefense();
 };
 
-class Ninja : public Fighter
-{
+class Saeufer : public Fighter {
 public:
-	Ninja();
-	Ninja(const std::string&);
-	virtual ~Ninja();
-	double specialAttack();
-	double specialDefense();
+    Saeufer(const std::string&);
+    virtual ~Saeufer() {};
+    double specialAttack();
+    double specialDefense();
 };
 
-class Warrior : public Fighter
-{
+class FauleSau : public Fighter {
 public:
-	Warrior(const std::string&);
-	virtual ~Warrior();
-	double specialAttack();
-	double specialDefense();
+    FauleSau(const std::string&);
+    virtual ~FauleSau() {};
+    double specialAttack();
+    double specialDefense();
 };
 
 void create(Fighter*[]);
+void deleteFighter(Fighter*[]);
 void fight(Fighter *[], int, int);
 void pick(Fighter *[]);
 void lastManStanding(Fighter*[]);
 void view(Fighter*[]);
-#endif // FIGHTERS_H_include
+
+std::string viewIndividual(Fighter* fighterPtr);
+#endif
