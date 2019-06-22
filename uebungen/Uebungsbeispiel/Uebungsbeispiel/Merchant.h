@@ -8,67 +8,84 @@ private:
 	int money;
 	int charisma;
 	int negotiation;
-	Consumable* consumable;
-	Product* product1;
-	Product* product2;
+	Consumable *consumable;
+	Product *product1;
+	Product *product2;
 
 public:
-	Merchant();
+	Merchant(string name, int liquidity, int money, int charisma, int negotiation, Consumable *consumable, Product *product1, Product *product2);
 	~Merchant();
-	void setLiquidity(bool liquidity) {
+	void destroyProdcut(int index);
+	bool trade(Merchant *tradingPartner);
+	void sellItem(int index);
+
+	void setLiquidity(bool liquidity)
+	{
 		this->liquidity = liquidity;
 	}
 
-	bool getLiquidity() {
+	bool getLiquidity()
+	{
 		return this->liquidity;
 	}
 
-	void setMoney(int money) {
+	void setMoney(int money)
+	{
 		this->money = money;
 	}
 
-	int getMoney() {
+	int getMoney()
+	{
 		return this->money;
 	}
 
-	void setCharisma(int charisma) {
+	void setCharisma(int charisma)
+	{
 		this->charisma = charisma;
 	}
 
-	int getCharisma() {
+	int getCharisma()
+	{
 		return this->charisma;
 	}
 
-	void setNegotiation(int negotiation) {
+	void setNegotiation(int negotiation)
+	{
 		this->negotiation = negotiation;
 	}
 
-	int getNegotiation() {
+	int getNegotiation()
+	{
 		return this->negotiation;
 	}
 
-	void setConsumable(Consumable* consumable) {
+	void setConsumable(Consumable *consumable)
+	{
 		this->consumable = consumable;
 	}
 
-	Consumable* getConsumable() {
+	Consumable *getConsumable()
+	{
 		return this->consumable;
 	}
 
-	void setProduct1(Product* product) {
+	void setProduct1(Product *product)
+	{
 		this->product1 = product;
 	}
 
-	Product* getProduct1() {
+	Product *getProduct1()
+	{
 		return this->product1;
 	}
 
-	void setProduct2(Product* product) {
+	void setProduct2(Product *product)
+	{
 		this->product2 = product;
 	}
 
-	Product* getProduct2() {
+	Product *getProduct2()
+	{
 		return this->product2;
 	}
 };
-

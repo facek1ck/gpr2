@@ -1,7 +1,7 @@
 #pragma once
 #include "item.h"
 
-class Product:Item
+class Product : Item
 {
 
 private:
@@ -10,15 +10,16 @@ private:
 public:
 	Product(string name, int power, int value, double durability);
 	~Product();
-	void setDurability(double durability) {
+	void setDurability(double durability)
+	{
 		this->durabilty = durability;
 	}
 
-	double getDurability() {
+	double getDurability()
+	{
 		return this->durabilty;
 	};
 	void decreaseDurability();
-	Product* operator+(Product* addProducts);
+	Product *operator+(Product *addProducts);
 	int getWeightedValue();
 };
-
