@@ -1,8 +1,9 @@
 #include "stdafx.h"
 #include "Merchant.h"
-#include "Consumable.h";
+#include <stdexcept>
+#include <iostream>
 
-Merchant::Merchant(string name, int negotiation, Consumable *consumable, Product *product1, Product *product2)
+Merchant::Merchant(string name, Consumable *consumable, Product *product1, Product *product2)
 {
     this->name = name;
     this->money = 100;
@@ -15,6 +16,9 @@ Merchant::Merchant(string name, int negotiation, Consumable *consumable, Product
 
 Merchant::~Merchant()
 {
+	delete consumable;
+	delete product1;
+	delete product2;
 }
 
 void Merchant::destroyProdcut(int index)
@@ -22,11 +26,11 @@ void Merchant::destroyProdcut(int index)
     switch (index)
     {
     case 1:
-        free(this->getProduct1());
+		delete getProduct1();
         this->setProduct1(nullptr);
         break;
     case 2:
-        free(this->getProduct2());
+		delete getProduct2();
         this->setProduct2(nullptr);
         break;
     default:
@@ -36,7 +40,7 @@ void Merchant::destroyProdcut(int index)
 
 bool Merchant::trade(Merchant *tradingPartner)
 {
-    if (this->getNegotiation() >= tradingPartner->getCharisma() && tradingPartner->setLiquidity == true)
+    if (this->getNegotiation() >= tradingPartner->getCharisma() && tradingPartner->getLiquidity() == true)
     {
         int merchantValue = this->getProduct1()->getWeightedValue() + this->getProduct2()->getWeightedValue();
         int partnerValue = tradingPartner->getProduct1()->getWeightedValue() + tradingPartner->getProduct2()->getWeightedValue();
@@ -94,39 +98,53 @@ void Merchant::sellItem(int index)
     switch (index)
     {
     case 0:
-        if (this->getConsumable() != nullptr)
+        if (this->getConsumable())
         {
             this->setMoney(this->getMoney() + this->getConsumable()->getValue());
             this->setConsumable(nullptr);
         }
         else
         {
-            throw std::invalid_argument("ERROR: You don't have any consumable to sell!")
+			throw std::invalid_argument("ERROR: You don't have any consumable to sell!");
         }
         break;
     case 1:
-        if (this->getProduct1() != nullptr)
+        if (this->getProduct1())
         {
             this->setMoney(this->getMoney() + this->getProduct1()->getWeightedValue());
             this->setProduct1(nullptr);
         }
         else
         {
-            throw std::invalid_argument("ERROR: You don't have any item in that slot!")
+			throw std::invalid_argument("ERROR: You don't have any item in that slot!");
         }
         break;
     case 2:
-        if (this->getProduct2() != nullptr)
+        if (this->getProduct2())
         {
             this->setMoney(this->getMoney() + this->getProduct1()->getWeightedValue());
             this->setProduct2(nullptr);
         }
         else
         {
-            throw std::invalid_argument("ERROR: You don't have any item in that slot!")
+			throw std::invalid_argument("ERROR: You don't have any item in that slot!");
         }
         break;
     default:
         throw std::invalid_argument("ERROR: Please enter a valid position! (0,1,2)");
     }
+}
+
+void Merchant::printStatus()
+{
+	cout << "State of Merchant:" << endl
+		 << "Name: " << this->getName() << endl
+		 << "Money: " << this->getMoney() << endl
+		 << "Liquidity: " << this->getLiquidity() << endl
+		 << "Charisma: " << this->getCharisma() << endl
+		 << "Negotiation: " << this->getNegotiation() << endl
+		 << "Product 1: " << this->getProduct1()->getName() << endl
+		 << "Product 2: " << this->getProduct2()->getName << endl
+		 << "Consumable: " << this->getConsumable()->getName() 
+		 << endl;
 }

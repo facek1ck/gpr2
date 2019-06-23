@@ -1,7 +1,7 @@
 #pragma once
 #include "item.h"
 #include "merchant.h";
-class Consumable : Item
+class Consumable : public Item
 {
 
 private:

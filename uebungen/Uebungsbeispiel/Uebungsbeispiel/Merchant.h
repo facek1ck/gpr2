@@ -1,9 +1,12 @@
 #pragma once
 #include "product.h"
+#include "Consumable.h"
+#include "Item.h"
 class Merchant
 {
 
 private:
+	string name;
 	bool liquidity;
 	int money;
 	int charisma;
@@ -13,11 +16,17 @@ private:
 	Product *product2;
 
 public:
-	Merchant(string name, int liquidity, int money, int charisma, int negotiation, Consumable *consumable, Product *product1, Product *product2);
+	Merchant(string name, Consumable *consumable, Product *product1, Product *product2);
 	~Merchant();
 	void destroyProdcut(int index);
 	bool trade(Merchant *tradingPartner);
 	void sellItem(int index);
+	void printStatus();
+
+	string getName()
+	{
+		return this->name;
+	}
 
 	void setLiquidity(bool liquidity)
 	{

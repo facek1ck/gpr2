@@ -1,7 +1,7 @@
 #pragma once
 #include "item.h"
 
-class Product : Item
+class Product : public Item
 {
 
 private:
