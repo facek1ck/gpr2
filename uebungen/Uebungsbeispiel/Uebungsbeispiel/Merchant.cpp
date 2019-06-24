@@ -1,8 +1,9 @@
 #include "stdafx.h"
-#include "Merchant.h"
 #include <stdexcept>
 #include <iostream>
-
+#include "Merchant.h"
+#include "Consumable.h"
+#include "Product.h"
 Merchant::Merchant(string name, Consumable *consumable, Product *product1, Product *product2)
 {
     this->name = name;
@@ -144,7 +145,7 @@ void Merchant::printStatus()
 		 << "Charisma: " << this->getCharisma() << endl
 		 << "Negotiation: " << this->getNegotiation() << endl
 		 << "Product 1: " << this->getProduct1()->getName() << endl
-		 << "Product 2: " << this->getProduct2()->getName << endl
+		 << "Product 2: " << this->getProduct2()->getName() << endl
 		 << "Consumable: " << this->getConsumable()->getName() 
 		 << endl;
 }

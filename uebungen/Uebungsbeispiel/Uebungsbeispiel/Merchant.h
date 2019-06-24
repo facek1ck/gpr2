@@ -1,7 +1,12 @@
 #pragma once
-#include "product.h"
-#include "Consumable.h"
-#include "Item.h"
+#ifndef MERCHANT_H
+#define MERCHANT_H
+using namespace std;
+#include <string>
+
+class Consumable;
+class Product;
+
 class Merchant
 {
 
@@ -11,9 +16,9 @@ private:
 	int money;
 	int charisma;
 	int negotiation;
-	Consumable *consumable;
-	Product *product1;
-	Product *product2;
+	Consumable* consumable;
+	Product* product1;
+	Product* product2;
 
 public:
 	Merchant(string name, Consumable *consumable, Product *product1, Product *product2);
@@ -98,3 +103,5 @@ public:
 		return this->product2;
 	}
 };
+
+#endif

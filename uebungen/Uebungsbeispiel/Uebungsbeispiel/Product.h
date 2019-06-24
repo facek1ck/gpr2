@@ -1,4 +1,6 @@
 #pragma once
+#ifndef PRODUCT_H
+#define PRODUCT_H
 #include "item.h"
 
 class Product : public Item
@@ -23,3 +25,5 @@ public:
 	Product *operator+(Product *addProducts);
 	int getWeightedValue();
 };
+
+#endif PRODUCT_H

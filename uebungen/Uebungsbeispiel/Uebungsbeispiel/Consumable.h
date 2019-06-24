@@ -1,6 +1,8 @@
 #pragma once
+#ifndef CONSUMABLE_H
+#define CONSUMABLE_H
 #include "item.h"
-#include "merchant.h";
+#include "merchant.h"
 class Consumable : public Item
 {
 
@@ -12,4 +14,6 @@ public:
 	~Consumable();
 	void use(Merchant* merchant);
 };
+
+#endif
 

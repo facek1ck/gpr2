@@ -19,7 +19,7 @@ void Consumable::use(Merchant* merchant)
 		int currentCharisma = merchant->getCharisma();
 		merchant->setCharisma(currentCharisma + 1);
 	}
-	else if (this->type == "(TYPE_NG_LESSON") {
+	else if (this->type == "TYPE_NG_LESSON") {
 		int currentNegotiation = merchant->getNegotiation();
 		merchant->setCharisma(currentNegotiation + 1);
 	}

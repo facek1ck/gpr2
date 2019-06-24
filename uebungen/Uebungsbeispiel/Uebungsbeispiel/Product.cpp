@@ -21,7 +21,7 @@ Product *Product::operator+(Product *addProduct)
 	string newName = "Mega" + this->getName();
 	int newPower = this->getPower() + addProduct->getPower();
 	int newValue = this->getValue() + addProduct->getValue();
-	int newDurability = this->durabilty + addProduct->getDurability();
+	double newDurability = this->durabilty + addProduct->getDurability();
 	if (newDurability > 1)
 		newDurability = 1;
 	return new Product(newName, newPower, newValue, newDurability);
